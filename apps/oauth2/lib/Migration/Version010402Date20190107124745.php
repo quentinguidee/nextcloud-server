@@ -42,9 +42,16 @@ class Version010402Date20190107124745 extends SimpleMigrationStep {
 		/** @var ISchemaWrapper $schema */
 		$schema = $schemaClosure();
 
-		$table = $schema->getTable('oauth2_clients');
-		$table->dropIndex('oauth2_client_id_idx');
-		$table->addUniqueIndex(['client_identifier'], 'oauth2_client_id_idx');
-		return $schema;
+		// The identifier column comes from Owncloud, skip this migration as long as the repair step as not been ran to rename the column.
+		if ($schema->getTable('oauth2_clients')->hasColumn('identifier')) {
+			return;
+		}
+
+		if (!$schema->getTable('oauth2_clients')->hasIndex('oauth2_client_id_idx')) {
+			$table = $schema->getTable('oauth2_clients');
+			$table->dropIndex('oauth2_client_id_idx');
+			$table->addUniqueIndex(['client_identifier'], 'oauth2_client_id_idx');
+			return $schema;
+		}
 	}
 }
