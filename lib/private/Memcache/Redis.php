@@ -55,7 +55,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	}
 
 	public function get($key) {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::get::' . $key . "\n",
@@ -72,7 +72,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	}
 
 	public function set($key, $value, $ttl = 0) {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::set::' . $key . '::' . $ttl . '::' . json_encode($value) . "\n",
@@ -88,7 +88,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	}
 
 	public function hasKey($key) {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::hasKey::' . $key . "\n",
@@ -100,7 +100,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	}
 
 	public function remove($key) {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::remove::' . $key . "\n",
@@ -116,7 +116,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	}
 
 	public function clear($prefix = '') {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::clear::' . $prefix . "\n",
@@ -149,7 +149,7 @@ class Redis extends Cache implements IMemcacheTTL {
 		if ($ttl !== 0 && is_int($ttl)) {
 			$args['ex'] = $ttl;
 		}
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::add::' . $key . '::' . $value . "\n",
@@ -169,7 +169,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	 * @return int | bool
 	 */
 	public function inc($key, $step = 1) {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::inc::' . $key . "\n",
@@ -188,7 +188,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	 * @return int | bool
 	 */
 	public function dec($key, $step = 1) {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::dec::' . $key . "\n",
@@ -211,7 +211,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	 * @return bool
 	 */
 	public function cas($key, $old, $new) {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::cas::' . $key . "\n",
@@ -241,7 +241,7 @@ class Redis extends Cache implements IMemcacheTTL {
 	 * @return bool
 	 */
 	public function cad($key, $old) {
-		if ($this->logFile !== '' && is_writable($this->logFile)) {
+		if ($this->logFile !== '' && is_writable(dirname($this->logFile))) {
 			file_put_contents(
 				$this->logFile,
 				$this->getNameSpace() . '::cad::' . $key . "\n",
