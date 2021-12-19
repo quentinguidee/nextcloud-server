@@ -465,7 +465,7 @@ export default {
 		display: flex;
 		z-index: 1;
 		top: 50px;
-		padding: 16px;
+		padding: 8px 16px;
 		cursor: grab;
 
 		&, ::v-deep * {
@@ -489,13 +489,13 @@ export default {
 			display: block;
 			flex-grow: 1;
 			margin: 0;
-			font-size: 20px;
-			line-height: 24px;
+			font-size: 17px;
+			line-height: 20px;
 			font-weight: bold;
-			background-size: 32px;
-			background-position: 14px 12px;
-			padding: 16px 8px 16px 60px;
-			height: 56px;
+			background-size: 24px;
+			background-position: 6px 12px;
+			padding: 14px 8px 14px 46px;
+			height: 46px;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
