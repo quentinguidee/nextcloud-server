@@ -83,7 +83,7 @@ export default {
 	flex-basis: 100%;
 	border-radius: var(--border-radius);
 	align-items: center;
-	min-height: 44px;
+	min-height: 40px;
 
 	&:hover,
 	&:focus {

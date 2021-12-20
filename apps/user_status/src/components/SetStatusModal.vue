@@ -253,7 +253,9 @@ export default {
 	&__online-status {
 		display: grid;
 		// Space between the two sections
-		margin-bottom: 40px;
+		margin-bottom: 32px;
+		grid-column-gap: 12px;
+		grid-row-gap: 8px;
 		grid-template-columns: 1fr 1fr;
 	}
 
@@ -275,6 +277,7 @@ export default {
 
 	.status-buttons {
 		display: flex;
+		gap: 12px;
 
 		button {
 			flex-basis: 50%;

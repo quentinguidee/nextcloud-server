@@ -92,13 +92,12 @@ $label-padding: 8px;
 
 	&__label {
 		display: block;
-		margin: $label-padding;
 		padding: $label-padding;
 		padding-left: $icon-size + $label-padding * 2;
 		border: 2px solid var(--color-main-background);
 		border-radius: var(--border-radius-large);
 		background-color: var(--color-background-hover);
-		background-position: $label-padding center;
+		background-position: $label-padding 9px;
 		background-size: $icon-size;
 
 		span,
@@ -116,6 +115,9 @@ $label-padding: 8px;
 	&__subline {
 		display: block;
 		color: var(--color-text-lighter);
+		font-size: 14px;
+		line-height: 1.4;
+		padding-bottom: 1px;
 	}
 }
 
